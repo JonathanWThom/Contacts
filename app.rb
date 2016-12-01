@@ -33,3 +33,21 @@ get('/contacts/:id') do
   @contact = Contact.find(params.fetch('id').to_i())
   erb(:individual_contact)
 end
+
+get('/contacts/:id/address/add') do
+  @contact = Contact.find(params.fetch('id').to_i())
+  erb(:new_address_form)
+end
+
+post('/address') do
+  street_address = params.fetch('street_address')
+  city = params.fetch('city')
+  state = params.fetch('state')
+  zip = params.fetch('zip')
+  type = params.fetch('type')
+  @new_address = Address.new(:street_address => street_address, :city => city, :state => state, :zip => zip, :type => type)
+  @new_address.save()
+  @contact = Contact.find(params.fetch('contact_id').to_i())
+  @contact.add_address(@new_address)
+  erb(:success)
+end

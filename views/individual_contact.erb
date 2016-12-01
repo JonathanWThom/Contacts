@@ -1,6 +1,13 @@
 <h1> <%= @contact.first_name() %> <%= @contact.last_name() %> </h1>
 <h3> Job Title: <%= @contact.job_title() %> </h3>
 <h3> Company: <%= @contact.company_name() %> </h3>
+<h3> Address:  </h3>
+<ul>
+  <% @contact.addresses().each() do |address| %>
+    <li><%= address.street_address() %></li>
+  <% end %>
+</ul>
 
 <!--other info -->
 <!--links-->
+<a href='/contacts/<%= @contact.id() %>/address/add'>Add an address</a>
