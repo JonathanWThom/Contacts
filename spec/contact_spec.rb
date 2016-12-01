@@ -34,4 +34,19 @@ describe(Contact) do
       expect(Contact.all()).to(eq([]))
     end
   end
+
+  describe("#save") do
+    it('will save a new contact to the contacts list') do
+      @test_contact.save()
+      expect(Contact.all()).to(eq([@test_contact]))
+    end
+  end
+
+  describe(".clear") do
+    it('will clear contacts list') do
+      @test_contact.save()
+      Contact.clear()
+      expect(Contact.all()).to(eq([]))
+    end
+  end
 end
