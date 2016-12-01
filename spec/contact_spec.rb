@@ -70,7 +70,7 @@ describe(Contact) do
 
   describe("#add_address") do
     it('will add an adress to a speciffic contact') do
-      new_address = Address.new(:street_name => "Waffle")
+      new_address = Address.new(:street_address => "Waffle")
       @test_contact.add_address(new_address)
       expect(@test_contact.addresses()).to(eq([new_address]))
 
