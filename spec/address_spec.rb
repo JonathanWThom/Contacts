@@ -3,7 +3,7 @@ require('address')
 
 describe(Address) do
   before() do
-    @test_address = Address.new({:street_address => "100 NE Waffle St.", :city => 'Springfield'})
+    @test_address = Address.new({:street_address => "100 NE Waffle St.", :city => 'Springfield', :state => 'Oregon'})
   end
 
   describe("#street_address") do
@@ -15,6 +15,12 @@ describe(Address) do
   describe("#city") do
     it('return the city') do
       expect(@test_address.city()).to(eq('Springfield'))
+    end
+  end
+
+  describe("#state") do
+    it('return the state') do
+      expect(@test_address.state()).to(eq('Oregon'))
     end
   end
 end
