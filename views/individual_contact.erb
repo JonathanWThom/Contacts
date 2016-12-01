@@ -13,11 +13,19 @@
     <li>(<%= phone_number.area() %>) <%= phone_number.number() %>, type: <%= phone_number.type() %></li>
   <% end %>
 </ul>
+<h3>Email Addresses:</h3>
+<ul>
+  <% @contact.emails().each() do |email| %>
+    <li><%= email.email_address() %>, Type: <%= email.email_type() %></li>
+  <% end %>
+</ul>
 
 <!--other info -->
 <!--links-->
 <a href='/contacts/<%= @contact.id() %>/address/add'>Add an address</a>
 <br>
 <a href='/contacts/<%= @contact.id() %>/phone_number/add'>Add a phone number</a>
+<br>
+<a href='/contacts/<%= @contact.id() %>/email/add'>Add an email address</a>
 <br>
 <a href='/contacts'> contacts</a>

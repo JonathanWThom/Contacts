@@ -67,3 +67,18 @@ post("/phone_number") do
   @contact.add_phone_number(@new_phone_number)
   erb(:success)
 end
+
+get('/contacts/:id/email/add') do
+  @contact = Contact.find(params.fetch('id').to_i())
+  erb(:email_form)
+end
+
+post('/email') do
+  email = params.fetch('email')
+  type = params.fetch('type')
+  @new_email = Email.new(:email_address => email, :email_type => type)
+  @new_email.save()
+  @contact = Contact.find(params.fetch('contact_id').to_i())
+  @contact.add_email(@new_email)
+  erb(:success)
+end

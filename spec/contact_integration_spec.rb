@@ -76,5 +76,16 @@ describe("the add contact route", {:type => :feature}) do
     end
   end
 
+  describe("Add email path", {:type => :feature}) do
+    it("will add a contact\'s email") do
+      visit('/contacts/1')
+      click_link("Add an email address")
+      fill_in("email", :with => 'zuck@gmail.com')
+      fill_in("type", :with => "work")
+      click_button("Add Email Address")
+      expect(page).to have_content('You have updated the information successfully')
+
+    end
+  end
 
 end
