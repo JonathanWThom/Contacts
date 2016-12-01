@@ -79,7 +79,7 @@ describe(Contact) do
 
   describe("#add_phone_number") do
     it("will add a new phone number for a speciffic contact") do
-      new_phone_number = Phone_number.new(:number => "1231234")
+      new_phone_number = Phone_number.new(:number => "1231234", :area => "503", :type => "home")
       @test_contact.add_phone_number(new_phone_number)
       expect(@test_contact.phone_numbers()).to(eq([new_phone_number]))
     end
