@@ -1,6 +1,7 @@
 require('rspec')
 require('contact')
 require('address')
+require('phone_number')
 
 describe(Contact) do
   before() do
@@ -73,7 +74,14 @@ describe(Contact) do
       new_address = Address.new(:street_address => "100 NE Waffle St.", :city => 'Springfield', :state => 'Oregon', :zip => '12345', :type => 'Home')
       @test_contact.add_address(new_address)
       expect(@test_contact.addresses()).to(eq([new_address]))
+    end
+  end
 
+  describe("#add_phone_number") do
+    it("will add a new phone number for a speciffic contact") do
+      new_phone_number = Phone_number.new(:number => "1231234")
+      @test_contact.add_phone_number(new_phone_number)
+      expect(@test_contact.phone_numbers()).to(eq([new_phone_number]))
     end
   end
 end
