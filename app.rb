@@ -22,5 +22,9 @@ post('/contacts') do
   Contact.new(:first_name => first_name, :last_name => last_name, :job_title => job_title, :company_name => company_name ).save()
   @contacts = Contact.all()
   erb(:success)
+end
 
+get('/contacts') do
+  @contacts = Contact.all()
+  erb(:contacts)
 end
