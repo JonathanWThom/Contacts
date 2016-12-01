@@ -4,10 +4,12 @@
 <h3> Address:  </h3>
 <ul>
   <% @contact.addresses().each() do |address| %>
-    <li><%= address.street_address() %></li>
+    <li><%= address.street_address() %>, <%= address.city() %>, <%= address.state() %>, <%= address.zip() %>, <%= address.type() %> address</li>
   <% end %>
 </ul>
 
 <!--other info -->
 <!--links-->
 <a href='/contacts/<%= @contact.id() %>/address/add'>Add an address</a>
+<br>
+<a href='/contacts'> contacts</a>
