@@ -28,3 +28,8 @@ get('/contacts') do
   @contacts = Contact.all()
   erb(:contacts)
 end
+
+get('/contacts/:id') do
+  @contact = Contact.find(params.fetch('id').to_i())
+  erb(:individual_contact)
+end
