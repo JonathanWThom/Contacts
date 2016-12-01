@@ -4,6 +4,7 @@ require('contact')
 describe(Contact) do
   before() do
     @test_contact = Contact.new({:first_name => "bob", :last_name => "Lablah", :job_title => "programmer", :company_name => "epicodus"})
+    Contact.clear()
   end
 
   describe("#first_name")do
@@ -47,6 +48,13 @@ describe(Contact) do
       @test_contact.save()
       Contact.clear()
       expect(Contact.all()).to(eq([]))
+    end
+  end
+
+  describe("#id") do
+    it('will return the id of a contact') do
+      @test_contact.save()
+      expect(@test_contact.id()).to(eq(1))
     end
   end
 end
