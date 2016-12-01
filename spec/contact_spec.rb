@@ -2,6 +2,7 @@ require('rspec')
 require('contact')
 require('address')
 require('phone_number')
+require('email')
 
 describe(Contact) do
   before() do
