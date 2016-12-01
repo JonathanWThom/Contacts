@@ -3,8 +3,8 @@ require('contact')
 
 describe(Contact) do
   before() do
-    @test_contact = Contact.new({:first_name => "bob", :last_name => "Lablah", :job_title => "programmer", :company_name => "epicodus"})
     Contact.clear()
+    @test_contact = Contact.new({:first_name => "bob", :last_name => "Lablah", :job_title => "programmer", :company_name => "epicodus"})
   end
 
   describe("#first_name")do
@@ -55,6 +55,15 @@ describe(Contact) do
     it('will return the id of a contact') do
       @test_contact.save()
       expect(@test_contact.id()).to(eq(1))
+    end
+  end
+
+  describe(".find") do
+    it('will return the correct contact based on id number') do
+      @test_contact.save()
+      other_contact = Contact.new({:first_name => "billy", :last_name => "blah", :job_title => "not a programmer", :company_name => "!epicodus"})
+      other_contact.save()
+      expect(Contact.find(@test_contact.id())).to(eq(@test_contact))
     end
   end
 end
