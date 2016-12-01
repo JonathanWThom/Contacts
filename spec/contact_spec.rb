@@ -28,4 +28,10 @@ describe(Contact) do
       expect(@test_contact.company_name()).to(eq("epicodus"))
     end
   end
+
+  describe(".all") do
+    it('will be empty at first') do
+      expect(Contact.all()).to(eq([]))
+    end
+  end
 end
