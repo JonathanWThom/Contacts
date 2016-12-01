@@ -1,5 +1,6 @@
 require('rspec')
 require('contact')
+require('address')
 
 describe(Contact) do
   before() do
@@ -64,6 +65,15 @@ describe(Contact) do
       other_contact = Contact.new({:first_name => "billy", :last_name => "blah", :job_title => "not a programmer", :company_name => "!epicodus"})
       other_contact.save()
       expect(Contact.find(@test_contact.id())).to(eq(@test_contact))
+    end
+  end
+
+  describe("#add_address") do
+    it('will add an adress to a speciffic contact') do
+      new_address = Address.new(:street_name => "Waffle")
+      @test_contact.add_address(new_address)
+      expect(@test_contact.addresses()).to(eq([new_address]))
+
     end
   end
 end
