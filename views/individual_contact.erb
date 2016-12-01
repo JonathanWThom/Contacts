@@ -7,9 +7,17 @@
     <li><%= address.street_address() %>, <%= address.city() %>, <%= address.state() %>, <%= address.zip() %>, <%= address.type() %> address</li>
   <% end %>
 </ul>
+<h3>Phone numbers:</h3>
+<ul>
+  <% @contact.phone_numbers().each() do |phone_number| %>
+    <li>(<%= phone_number.area() %>) <%= phone_number.number() %>, type: <%= phone_number.type() %></li>
+  <% end %>
+</ul>
 
 <!--other info -->
 <!--links-->
 <a href='/contacts/<%= @contact.id() %>/address/add'>Add an address</a>
+<br>
+<a href='/contacts/<%= @contact.id() %>/phone_number/add'>Add a phone number</a>
 <br>
 <a href='/contacts'> contacts</a>

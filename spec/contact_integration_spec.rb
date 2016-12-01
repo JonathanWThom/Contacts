@@ -60,9 +60,21 @@ describe("the add contact route", {:type => :feature}) do
     fill_in('zip', :with => '1242142')
     fill_in('type', :with => 'work')
     click_button("Add Address")
-    expect(page).to have_content("You have updated the information successfully")
-
-
+    expect(page).to have_content("You have updated the information successfully ")
   end
+
+  describe("Add phone number path", {:type => :feature}) do
+    it("user inputs phone number for speciffic contact, and it shows up on the contact's information page") do
+      visit('/contacts/1')
+      click_link("Add a phone number")
+      fill_in("area_code", :with => '503')
+      fill_in("phone_number", :with => "1231234")
+      fill_in("type", :with => "work")
+      click_button("Add phone number")
+      expect(page).to have_content('You have updated the information successfully')
+
+    end
+  end
+
 
 end

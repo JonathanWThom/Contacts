@@ -1,0 +1,21 @@
+<h1> Add a new phone number for <%= @contact.first_name() %> </h1>
+
+<form action="/phone_number" method="post">
+
+  <input id='contact_id' name='contact_id' type='hidden' value='<%= @contact.id() %>'>
+
+  <div class="form-group">
+    <label for="area_code">area code</label>
+    <input name="area_code">
+  </div>
+  <div class="form-group">
+    <label for="phone_number">phone number</label>
+    <input name="phone_number">
+  </div>
+  <div class="form-group">
+    <label for="type">Type</label>
+    <input name="type">
+  </div>
+
+  <button type="submit" class="btn">Add phone number</button>
+</form>

@@ -51,3 +51,19 @@ post('/address') do
   @contact.add_address(@new_address)
   erb(:success)
 end
+
+get("/contacts/:id/phone_number/add") do
+  @contact = Contact.find(params.fetch('id').to_i())
+  erb(:phone_form)
+end
+
+post("/phone_number") do
+  area_code = params.fetch('area_code')
+  phone_number = params.fetch('phone_number')
+  type = params.fetch('type')
+  @new_phone_number = Phone_number.new(:area => area_code, :number => phone_number, :type => type)
+  @new_phone_number.save()
+  @contact = Contact.find(params.fetch('contact_id').to_i())
+  @contact.add_phone_number(@new_phone_number)
+  erb(:success)
+end
